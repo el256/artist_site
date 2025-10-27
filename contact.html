@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Contatti — Quilici Elia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body, html { margin:0; padding:0; font-family:'Arial',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+#background-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:linear-gradient(45deg,#ff007f,#00fff7,#ff7f00,#7f00ff); background-size:400% 400%; animation:gradientShift 20s ease infinite; }
+@keyframes gradientShift {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(0,0,0,0.5); position:sticky; top:0; z-index:10; }
+.brand { font-family:'Orbitron',sans-serif; font-size:2rem; font-weight:700; color:#ff007f; text-shadow:0 0 8px #ff007f; animation:flicker 2s infinite alternate; }
+nav a { margin-left:20px; padding:6px 12px; border-radius:6px; transition:0.3s; }
+nav a:hover, nav a.active { background:#ff007f; color:#111; box-shadow:0 0 12px #ff007f; }
+main { max-width:600px; margin:60px auto; background:rgba(0,0,0,0.5); border-radius:16px; padding:40px 20px; box-shadow:0 0 25px #ff007f; text-align:center; }
+main h2 { color:#ff007f; text-shadow:0 0 15px #ff007f; margin-bottom:25px; animation:flicker 3s infinite; }
+main form { display:flex; flex-direction:column; gap:15px; }
+main input, main textarea { padding:12px 15px; border-radius:8px; border:none; outline:none; font-size:1rem; background:#222; color:#fff; box-shadow:0 0 10px #ff007f inset; }
+main button { padding:12px 20px; border-radius:10px; border:none; background:#ff007f; color:#111; font-weight:bold; cursor:pointer; transition:0.3s; box-shadow:0 0 20px #ff007f; }
+main button:hover { transform:scale(1.05); box-shadow:0 0 35px #ff007f; }
+footer { text-align:center; padding:20px; margin-top:40px; color:#aaa; font-size:0.9rem; }
+@keyframes flicker {0%,19%,21%,23%,25%,54%,56%,100%{opacity:1;text-shadow:0 0 10px #ff007f,0 0 20px #ff007f,0 0 30px #ff007f;}20%,22%,24%,55%{opacity:0.4;text-shadow:none;}}
+</style>
+</head>
+<body>
+
+<div id="background-canvas"></div>
+
+<header>
+  <div class="brand">Quilici Elia</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="artists.html">Artisti</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contatti</a>
+  </nav>
+</header>
+
+<main>
+  <h2>Contattami</h2>
+  <form>
+    <input type="text" placeholder="Nome" required>
+    <input type="email" placeholder="Email" required>
+    <textarea rows="5" placeholder="Messaggio" required></textarea>
+    <button type="submit">Invia</button>
+  </form>
+</main>
+
+<footer>© 2025 Quilici Elia</footer>
+
+<script>
+const canvas=document.getElementById('background-canvas');
+for(let i=0;i<80;i++){const p=document.createElement('div');p.classList.add('particle');const size=2+Math.random()*5;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*window.innerWidth+'px';p.style.top=Math.random()*window.innerHeight+'px';p.style.opacity=Math.random();canvas.appendChild(p);}
+document.addEventListener('mousemove',e=>{const particles=document.querySelectorAll('.particle');const offsetX=(e.clientX-window.innerWidth/2)/50;const offsetY=(e.clientY-window.innerHeight/2)/50;particles.forEach((p,i)=>{p.style.transform=`translate(${offsetX*(i%5)}px, ${offsetY*(i%5)}px)`;});});
+</script>
+
+</body>
+</html>

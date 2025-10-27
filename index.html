@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Quilici Elia — Home</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body, html { margin:0; padding:0; font-family:'Arial',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+#background-canvas {
+  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+  background: linear-gradient(45deg,#ff007f,#00fff7,#ff7f00,#7f00ff); background-size:400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+@keyframes gradientShift {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(0,0,0,0.5); position:sticky; top:0; z-index:10; }
+.brand { font-family:'Orbitron',sans-serif; font-size:2rem; font-weight:700; color:#ff007f; text-shadow:0 0 8px #ff007f; animation:flicker 2s infinite alternate; }
+nav a { margin-left:20px; padding:6px 12px; border-radius:6px; font-family:'Orbitron',sans-serif; transition:0.3s; }
+nav a:hover, nav a.active { background:#ff007f; color:#111; box-shadow:0 0 12px #ff007f; }
+.hero { display:flex; flex-direction:column; align-items:center; text-align:center; padding:60px 20px; }
+.hero h1 { font-size:3rem; margin-bottom:15px; color:#ff007f; text-shadow:0 0 15px #ff007f; animation:flicker 3s infinite; }
+.hero p.lead { font-size:1.2rem; margin-bottom:25px; color:#ccc; }
+.btn { padding:12px 30px; background:#ff007f; border-radius:8px; font-weight:bold; color:#111; box-shadow:0 0 20px #ff007f; transition:0.3s; animation:flicker 4s infinite; }
+.btn:hover { transform:scale(1.05); box-shadow:0 0 35px #ff007f; }
+.artists { display:flex; flex-wrap:wrap; justify-content:center; gap:25px; margin-top:40px; }
+.artist-card { background:rgba(0,0,0,0.5); padding:20px; border-radius:16px; width:180px; text-align:center; transition: transform 0.4s, box-shadow 0.4s; cursor:pointer; opacity:0; transform: translateY(40px); }
+.artist-card.active { opacity:1; transform: translateY(0); }
+.artist-card:hover { box-shadow:0 20px 40px rgba(255,0,127,0.6); }
+.artist-card img { width:100%; border-radius:12px; transition: transform 0.3s; }
+.artist-card img:hover { transform:scale(1.05); }
+.album-row { display:flex; flex-wrap:wrap; justify-content:center; gap:15px; margin-top:30px; opacity:0; transform: translateY(40px); transition:0.7s; }
+.album-row.active { opacity:1; transform: translateY(0); }
+.album-row img { width:100%; max-width:150px; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; }
+.album-row img:hover { transform: scale(1.05); box-shadow:0 0 25px #ff007f; }
+.particle { position:absolute; border-radius:50%; background:#ff007f; opacity:0.6; pointer-events:none; }
+footer { text-align:center; padding:20px; margin-top:40px; color:#aaa; font-size:0.9rem; }
+@keyframes flicker {0%,19%,21%,23%,25%,54%,56%,100%{opacity:1;text-shadow:0 0 10px #ff007f,0 0 20px #ff007f,0 0 30px #ff007f;}20%,22%,24%,55%{opacity:0.4;text-shadow:none;}}
+@media(max-width:600px){ .artist-card { width:140px; } }
+</style>
+</head>
+<body>
+
+<div id="background-canvas"></div>
+
+<header>
+  <div class="brand">Quilici Elia</div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="artists.html">Artisti</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contatti</a>
+  </nav>
+</header>
+
+<main class="hero">
+  <h1>Il battito della nuova scena italiana</h1>
+  <p class="lead">Biografie, player ufficiali e video.</p>
+  <a class="btn" href="artists.html">Scopri gli artisti</a>
+
+  <div class="artists">
+    <div class="artist-card">
+      <img src="https://images.genius.com/645738d81523610af0bbf19602628f78.1000x1000x1.png" alt="Glocky">
+      <h3>Glocky</h3>
+      <p class="lead">Melodic trap / cloud rap</p>
+    </div>
+    <div class="artist-card">
+      <img src="https://admin.vivoconcerti.com/uploads/xlarge_tony_boy_sito_0a0f9c8e73.png" alt="Tony Boy">
+      <h3>Tony Boy</h3>
+      <p class="lead">Trap / emo rap</p>
+    </div>
+    <div class="artist-card">
+      <img src="https://images.genius.com/333c11f515747cb77863ee236a84d8ee.1000x1000x1.png" alt="Waze RRX">
+      <h3>Waze RRX</h3>
+      <p class="lead">Hip-hop / drill</p>
+    </div>
+  </div>
+
+  <div class="album-row">
+    <a href="https://open.spotify.com/album/53DRh8HCYyMHCyMF7HbHJe" target="_blank"><img src="https://i.scdn.co/image/ab67616d00001e028943f191de08db7cb0531119" alt="Glocky - Glocky vs Kyddo"></a>
+    <a href="https://open.spotify.com/intl-it/album/4NJAg5EXV7Vyze7yWz34zB?si=8CVu230FTBqWBBJxr6Yuiw" target="_blank"><img src="https://i.scdn.co/image/ab67616d0000b2735f3aca585b1d543ebd9c2fe8" alt="Tony Boy - Uforia"></a>
+    <a href="https://open.spotify.com/intl-it/album/5cgbPhZqZqfXcmm3xE9X13?si=afWByab8R1iK4VOCkj_x2w" target="_blank"><img src="https://i.scdn.co/image/ab67616d0000b2733a92243096dfc055ebf78047" alt="Waze RRX - MOON-XTRA"></a>
+  </div>
+</main>
+
+<footer>© 2025 Quilici Elia</footer>
+
+<script>
+// PARTICELLE
+const canvas=document.getElementById('background-canvas');
+for(let i=0;i<80;i++){const p=document.createElement('div');p.classList.add('particle');const size=2+Math.random()*5;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*window.innerWidth+'px';p.style.top=Math.random()*window.innerHeight+'px';p.style.opacity=Math.random();canvas.appendChild(p);}
+document.addEventListener('mousemove',e=>{const particles=document.querySelectorAll('.particle');const offsetX=(e.clientX-window.innerWidth/2)/50;const offsetY=(e.clientY-window.innerHeight/2)/50;particles.forEach((p,i)=>{p.style.transform=`translate(${offsetX*(i%5)}px, ${offsetY*(i%5)}px)`;});});
+
+// SCROLL ANIMATION
+const scrollElems=document.querySelectorAll('.artist-card, .album-row');
+window.addEventListener('scroll',()=>{const scrollY=window.scrollY+window.innerHeight;scrollElems.forEach(el=>{if(scrollY>el.offsetTop+50) el.classList.add('active');});});
+</script>
+
+</body>
+</html>

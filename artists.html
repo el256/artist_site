@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Artisti — Quilici Elia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body, html { margin:0; padding:0; font-family:'Arial',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+#background-canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; background:linear-gradient(45deg,#ff007f,#00fff7,#ff7f00,#7f00ff); background-size:400% 400%; animation:gradientShift 20s ease infinite; }
+@keyframes gradientShift {0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 40px; background:rgba(0,0,0,0.5); position:sticky; top:0; z-index:10; }
+.brand { font-family:'Orbitron',sans-serif; font-size:2rem; font-weight:700; color:#ff007f; text-shadow:0 0 8px #ff007f; animation:flicker 2s infinite alternate; }
+nav a { margin-left:20px; padding:6px 12px; border-radius:6px; transition:0.3s; }
+nav a:hover, nav a.active { background:#ff007f; color:#111; box-shadow:0 0 12px #ff007f; }
+main { padding:40px 20px; text-align:center; }
+h1 { font-size:2.5rem; color:#ff007f; text-shadow:0 0 15px #ff007f; margin-bottom:30px; opacity:0; transform:translateY(20px); transition:0.6s; }
+.artists { display:flex; flex-wrap:wrap; justify-content:center; gap:30px; }
+.artist-card { background:rgba(0,0,0,0.5); border-radius:16px; padding:20px; width:220px; transition:0.4s; opacity:0; transform:translateY(20px); }
+.artist-card img { width:100%; border-radius:12px; transition: transform 0.3s, box-shadow 0.3s; }
+.artist-card img:hover { transform:scale(1.05); box-shadow:0 0 25px #ff007f; }
+.artist-card h3 { color:#ff007f; margin:15px 0 5px; text-shadow:0 0 12px #ff007f; }
+.artist-card p.lead { color:#ccc; font-size:0.9rem; margin-bottom:10px; }
+.artist-card .btn { display:inline-block; padding:8px 14px; background:#ff007f; color:#111; border-radius:8px; transition:0.3s; box-shadow:0 0 10px #ff007f; }
+.artist-card .btn:hover { background:#00fff7; box-shadow:0 0 15px #00fff7; transform:scale(1.05); }
+footer { text-align:center; padding:20px; margin-top:40px; color:#aaa; font-size:0.9rem; }
+@keyframes flicker {0%,19%,21%,23%,25%,54%,56%,100%{opacity:1;text-shadow:0 0 10px #ff007f,0 0 20px #ff007f,0 0 30px #ff007f;}20%,22%,24%,55%{opacity:0.4;text-shadow:none;}}
+.fade-in { opacity:0; transform:translateY(20px); transition:1s ease-out; }
+.fade-in.show { opacity:1; transform:translateY(0); }
+@media(max-width:900px){ .artists { flex-direction:column; align-items:center; } }
+</style>
+</head>
+<body>
+
+<div id="background-canvas"></div>
+
+<header>
+  <div class="brand">Quilici Elia</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="artists.html" class="active">Artisti</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contatti</a>
+  </nav>
+</header>
+
+<main>
+  <h1 class="fade-in">Artisti in evidenza</h1>
+  <div class="artists">
+    <div class="artist-card fade-in">
+      <img src="https://images.genius.com/d7feb401a58cd093c7e80d9b148442e8.368x368x1.jpg" alt="Glocky">
+      <h3>Glocky</h3>
+      <p class="lead">Melodic trap / cloud rap</p>
+      <a class="btn" href="artist-glocky.html">Vai al profilo</a>
+    </div>
+    <div class="artist-card fade-in">
+      <img src="https://www.lacasadelrap.com/wp-content/uploads/2023/05/3f380ab7-2103-edc9-930c-b9f9c87001a7-scaled.jpg" alt="Tony Boy">
+      <h3>Tony Boy</h3>
+      <p class="lead">Trap / emo rap</p>
+      <a class="btn" href="artist-tonyboy.html">Vai al profilo</a>
+    </div>
+    <div class="artist-card fade-in">
+      <img src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84f56dbb85ce700dd70e8713af" alt="Waze RRX">
+      <h3>Waze RRX</h3>
+      <p class="lead">Hip-hop / drill</p>
+      <a class="btn" href="artist-waze.html">Vai al profilo</a>
+    </div>
+  </div>
+</main>
+
+<footer>© 2025 Quilici Elia</footer>
+
+<script>
+// PARTICELLE
+const canvas=document.getElementById('background-canvas');
+for(let i=0;i<80;i++){const p=document.createElement('div');p.classList.add('particle');const size=2+Math.random()*5;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*window.innerWidth+'px';p.style.top=Math.random()*window.innerHeight+'px';p.style.opacity=Math.random();canvas.appendChild(p);}
+document.addEventListener('mousemove',e=>{const particles=document.querySelectorAll('.particle');const offsetX=(e.clientX-window.innerWidth/2)/50;const offsetY=(e.clientY-window.innerHeight/2)/50;particles.forEach((p,i)=>{p.style.transform=`translate(${offsetX*(i%5)}px, ${offsetY*(i%5)}px)`;});});
+// FADE-IN
+const faders=document.querySelectorAll('.fade-in');
+const appearOptions={threshold:0.2, rootMargin:"0px 0px -50px 0px"};
+const appearOnScroll=new IntersectionObserver(function(entries,observer){entries.forEach(entry=>{if(!entry.isIntersecting)return;entry.target.classList.add('show');observer.unobserve(entry.target);});},appearOptions);
+faders.forEach(fader=>appearOnScroll.observe(fader));
+</script>
+
+</body>
+</html>

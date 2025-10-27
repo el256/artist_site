@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Waze RRX — Quilici Elia</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+body, html { margin:0; padding:0; font-family:'Arial',sans-serif; background:#111; color:#fff; overflow-x:hidden; }
+a { text-decoration:none; color:inherit; }
+
+#background-canvas {
+  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1;
+  background: linear-gradient(45deg,#ff007f,#00fff7,#ff7f00,#7f00ff);
+  background-size:400% 400%;
+  animation: gradientShift 20s ease infinite;
+}
+@keyframes gradientShift {0% {background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;}}
+
+header { display:flex; justify-content:space-between; align-items:center; padding:20px 50px; background:rgba(0,0,0,0.5); position:sticky; top:0; z-index:10; box-shadow:0 0 15px #ff007f inset; }
+.brand { font-family:'Orbitron',sans-serif; font-size:2rem; font-weight:700; color:#ff007f; text-shadow:0 0 8px #ff007f,0 0 20px #ff007f; animation:flicker 2s infinite alternate; }
+nav a { margin-left:25px; padding:8px 12px; border-radius:6px; font-weight:500; transition:0.3s; font-family:'Orbitron',sans-serif; }
+nav a:hover, nav a.active { background:#ff007f; color:#111; box-shadow:0 0 10px #ff007f; }
+
+.artist-profile { display:flex; flex-wrap:wrap; justify-content:center; align-items:flex-start; gap:40px; padding:50px 30px; }
+.artist-profile aside { flex:1 1 320px; text-align:center; }
+.artist-profile aside img { width:100%; border-radius:16px; transition: transform 0.3s, box-shadow 0.3s; }
+.artist-profile aside img:hover { transform:scale(1.05); box-shadow:0 0 35px #ff007f; }
+.artist-profile section { flex:2 1 550px; text-align:left; background:rgba(0,0,0,0.5); padding:20px; border-radius:16px; box-shadow:0 0 25px #ff007f; }
+.artist-profile h2 { font-size:2.5rem; color:#ff007f; text-shadow:0 0 20px #ff007f; animation:flicker 3s infinite; margin-bottom:20px; }
+.artist-profile h3 { font-size:1.5rem; color:#00fff7; text-shadow:0 0 12px #00fff7; margin-top:25px; margin-bottom:12px; }
+.artist-profile p.bio { font-size:1rem; line-height:1.7; color:#ccc; max-height:400px; overflow-y:auto; padding-right:10px; }
+.youtube-video { position:relative; width:100%; padding-bottom:56.25%; cursor:pointer; margin-top:10px; border-radius:12px; overflow:hidden; transition:0.3s; }
+.youtube-video img { position:absolute; width:100%; height:100%; top:0; left:0; object-fit:cover; border-radius:12px; transition:0.3s; }
+.youtube-video:hover img { transform:scale(1.05); filter:brightness(1.1); }
+.link { color:#ff007f; transition:0.3s; }
+.link:hover { color:#00fff7; text-shadow:0 0 12px #00fff7; }
+
+footer { text-align:center; padding:25px; margin-top:40px; color:#aaa; font-size:0.9rem; }
+
+@keyframes flicker { 0%,19%,21%,23%,25%,54%,56%,100%{opacity:1;text-shadow:0 0 10px #ff007f,0 0 20px #ff007f,0 0 30px #ff007f;} 20%,22%,24%,55%{opacity:0.4;text-shadow:none;} }
+
+@media(max-width:900px){ .artist-profile{flex-direction:column;align-items:center;text-align:center;} .artist-profile section{max-width:90%;} }
+</style>
+</head>
+<body>
+
+<div id="background-canvas"></div>
+
+<header>
+  <div class="brand">Quilici Elia</div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="artists.html" class="active">Artisti</a>
+  </nav>
+</header>
+
+<main class="artist-profile card">
+  <aside>
+    <img src="https://i.pinimg.com/736x/92/3d/89/923d891366db152483cb5cb6dba77f0a.jpg" alt="Waze RRX">
+  </aside>
+  <section>
+    <h2>Waze RRX</h2>
+    <p class="bio">
+      Waze RRX è un artista italiano emergente della scena urban nazionale, noto per la fusione di drill e trap con sonorità originali e incisive. I suoi testi raccontano esperienze di vita reale, ambizioni e sogni, restituendo autenticità e forza narrativa.
+      <br><br>
+      Negli ultimi anni ha collaborato con diversi nomi importanti della scena hip-hop italiana, costruendo una fanbase solida e partecipe. Le sue produzioni si distinguono per beat potenti, ritmi coinvolgenti e testi diretti, capaci di catturare l’attenzione fin dal primo ascolto.
+      <br><br>
+      Waze RRX è un artista in continua evoluzione, capace di innovare mantenendo uno stile personale riconoscibile, consolidandosi come una delle voci più interessanti della nuova generazione urban italiana.
+    </p>
+
+    <h3>Ascolta su Spotify</h3>
+    <iframe src="https://open.spotify.com/embed/artist/12wWvc6Z0111IfGRncCtwD" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+
+    <h3>Video ufficiale</h3>
+    <div class="youtube-video" data-video="o9ue-V0Iyc8">
+      <img src="https://img.youtube.com/vi/o9ue-V0Iyc8/hqdefault.jpg" alt="Waze RRX - Così Necessario">
+    </div>
+
+    <div style="margin-top:12px">
+      Social: <a class="link" href="https://www.youtube.com/@wazerrx">YouTube</a> • 
+      <a class="link" href="https://open.spotify.com/artist/12wWvc6Z0111IfGRncCtwD">Spotify</a>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">© 2025 Quilici Elia</footer>
+
+<script>
+// PARTICELLE
+const canvas=document.getElementById('background-canvas');
+for(let i=0;i<80;i++){const p=document.createElement('div');p.classList.add('particle');const size=2+Math.random()*5;p.style.width=size+'px';p.style.height=size+'px';p.style.left=Math.random()*window.innerWidth+'px';p.style.top=Math.random()*window.innerHeight+'px';p.style.opacity=Math.random();canvas.appendChild(p);}
+document.addEventListener('mousemove',e=>{const particles=document.querySelectorAll('.particle');const offsetX=(e.clientX-window.innerWidth/2)/50;const offsetY=(e.clientY-window.innerHeight/2)/50;particles.forEach((p,i)=>{p.style.transform=`translate(${offsetX*(i%5)}px, ${offsetY*(i%5)}px)`;});});
+
+// YOUTUBE CLICK TO PLAY
+document.querySelectorAll('.youtube-video').forEach(div=>{div.addEventListener('click',()=>{const videoId=div.getAttribute('data-video'); div.innerHTML=`<iframe width="100%" height="315" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;});});
+</script>
+
+</body>
+</html>
